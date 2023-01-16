@@ -1,25 +1,6 @@
-import playwright from 'playwright'
-import express from 'express'
-import cors from 'cors'
+const playwright = require('playwright')
 
-const app = express()
-
-const whitelist = ['http://localhost:3000', 'https://smiths-air-jobs.vercel.app']
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }},
-    credentials: true
-}
-
-app.use(express.json())
-app.use(cors(corsOptions))
-
-app.get('/', async (req, res) => {
+export const handler = async (event) => {
     const browser = await playwright.chromium.launch({ headless: true })
     const page = await browser.newPage()
     await page.goto('https://whsmithcareers.co.uk')
@@ -40,7 +21,6 @@ app.get('/', async (req, res) => {
     })
 
     await browser.close()
-    res.send(data)
-})
 
-app.listen('8080', () => console.log(`Server running on port 8080`))
+    return { statusCode: 200, body: data }
+}
