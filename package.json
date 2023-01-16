@@ -1,0 +1,12 @@
+{
+  "name": "web-scraper",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hsattar/smiths-air-jobs.git",
+  "author": "Hasan Sattar <hasanraza1798@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.29.2"
+  }
+}
