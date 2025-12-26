@@ -6,6 +6,6 @@
   "author": "Hasan Sattar <hasanraza1798@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "playwright": "^1.29.2"
+    "playwright": "^1.55.1"
   }
 }
